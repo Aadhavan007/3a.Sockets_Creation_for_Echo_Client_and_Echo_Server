@@ -1,5 +1,7 @@
 # 3a.CREATION FOR ECHO CLIENT AND ECHO SERVER USING TCP SOCKETS
-# AIM
+## NAME: M AADHAVAN NAGARAJAN
+## REGISTER NUMBER: 212225040001
+## AIM
 To write a python program for creating Echo Client and Echo Server using TCP
 Sockets Links.
 ## ALGORITHM:
@@ -9,7 +11,32 @@ Sockets Links.
  server .
 4. Send and receive the message using the send function in socket.
 ## PROGRAM
+SERVER PROGRAM:
+```
+import socket
+s=socket.socket()
+s.bind(('localhost',8001))
+s.listen(5)
+c,addr=s.accept()
+while True:
+    Client_msg=c.recv(1024).decode()
+    c.send(Client_msg.encode())
+```
+
+CLIENT PROGRAM:
+```
+import socket
+s=socket.socket()
+s.connect(('localhost',8001))
+while True:
+    msg=input('Client>')
+    s.send(msg.encode())
+    print('Server>',s.recv(1024).decode())
+```
 ## OUPUT
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f93b4259-af83-44ca-a143-3a8edafac2b8" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c1226262-a295-440f-abdd-fd840c1b656f" />
+
 ## RESULT
 Thus, the python program for creating Echo Client and Echo Server using TCP Sockets Links 
 was successfully created and executed.
